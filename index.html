@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Richie Rich</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="richeditorio.css">
+		<style>
+			.editor-outer {max-width: 700px; margin: 0 auto;}
+			.proEditor {min-height: 1400px; background-color: #f9f9f9; padding:20px;}
+            figure.richeditorio-figure {margin-bottom: 5px; position: relative; max-width: 100%;}
+            figure.richeditorio-figure.richeditorio-process:before {
+                content: "applying changes..."; left: 0; right: 0;
+                top: 50%; position: absolute; display: block;
+                text-align: center; line-height: 20px; margin-top: -10px; font-size: 2em;
+            }
+            figure.richeditorio-figure img.imageSrc, figure.richeditorio-figure img {max-width: 100%;}
+            figure.richeditorio-figure img.imageSrc {width: 100%;}
+            figure.richeditorio-figure.richeditorio-process img.imageSrc {opacity: 0.4;}
+            figure figcaption {font-style: italic; font-size: .9em; text-align: center; background-color: rgba(0,0,0,0.05); padding: 3px;}
+
+            /* Link Embeds */
+            .link-embed {border:rgba(0,0,0,0.05) 1px solid; border-radius: 5px; background: #ffffff; overflow: hidden; display: table; width: 100%; position: relative; line-height: normal;}
+            .link-embed:hover {border-color: rgba(0,0,0,0.1); background: #fcfcfc;}
+            .link-embed .link-body {display: table-row;}
+            .link-body:after {content: "\f08e"; font-family: FontAwesome; bottom:10px; right:15px; position: absolute; color: #474747; font-size: .7em; opacity: 0.7;}
+            .link-embed a {text-decoration: none; color:initial;}
+            .link-embed .link_image {width:120px; height:120px; display: table-cell; vertical-align: middle;}
+            .link-embed .link_desc {padding:15px; display: table-cell; vertical-align: middle;}
+            .link_desc h4{margin-top:0; font-size: 1em;}
+            .link_desc p{margin: 0; font-size: .9em; color: #474747;}
+            .link-embed .link_attachment {padding:15px; display: block; text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div class="doc">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="editor-outer">
+							<div class="proEditor"></div>
+						</div>
+					</div>
+                    <!--<div class="col-xs-6">-->
+                        <!--<div class="editor-outer">-->
+                            <!--<div class="proEditor"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript" src="http://feather.aviary.com/imaging/v3/editor.js"></script>
+		<script type="text/javascript" src="richeditorio.js"></script>
+		<script type="text/javascript" src="plugins/alignment.js"></script>
+        <script type="text/javascript" src="plugins/source.js"></script>
+        <script type="text/javascript" src="plugins/fontfamily.js"></script>
+        <script type="text/javascript" src="plugins/fontsize.js"></script>
+        <script type="text/javascript" src="plugins/fontcolor.js"></script>
+        <script type="text/javascript" src="plugins/undo.js"></script>
+        <script type="text/javascript" src="plugins/redo.js"></script>
+        <script type="text/javascript" src="plugins/horizontalrule.js"></script>
+        <script type="text/javascript" src="plugins/embed.js"></script>
+		<script type="text/javascript" src="plugins/embedcode.js"></script>
+		
+		<script type="text/javascript">
+		    $(function() {
+		        $('.proEditor').richeditorio({
+		            //plugins: ['fontcolor','fontfamily','fontsize','imagegallery','embed','instagramgallery','twittergallery','poll','embedcode','youtube_upload','soundcloud_upload','readMore','pdf'],
+		            buttons: ['format', 'bold', 'italic', 'underline', 'link' ,'ol', 'ul', 'indent', 'outdent', 'fontfamily', 'fontsize', 'fontcolor', 'image', 'horizontalrule', 'source', 'embed','embedcode'],
+//                    plugins:['embedcode'],
+					focus: true,
+		            imageUploadSize: 3072000,
+		            cleanOnPaste: true,
+                    fontfamily: [ 'Arial', 'Helvetica', 'Georgia', 'Times New Roman', 'Monospace' ],
+                    fontsize: ['18px', '20px'],
+		            replaceDivs: false,
+		            deniedTags: ['div','script','style'],
+		            convertUrlLinks: false,
+		            removeEmpty: ['p','ul','li','span'],
+                    imageUpload: 'http://www.thoughtchimps.com/richeditor/image.php',
+                    embedUrl: 'http://www.thoughtchimps.com/richeditor/embed.php',
+		            fileUpload: 'assets/files/',
+		            toolbarFixedTopOffset: 0,
+		            convertLinks: false,
+		            convertVideoLinks: false,
+		            convertImageLinks: false,
+		            pasteLinkTarget: '_blank',
+                    linkNewTab: true
+		        });
+		    });
+		</script>
+	</body>
+</html>
